@@ -15,27 +15,6 @@ This repository is my learning journey. I explore different models, architecture
 | MovieLens-100k | ✅ Done | Surprise | SVD, KNN, BaselineOnly, SlopeOne |
 | MovieLens-1m | ✅ Done | Surprise | SVD, KNN, BaselineOnly, SlopeOne |
 
-## 📊 Key Experiments
-
-- RMSE comparison between different algorithms
-- Prediction accuracy evaluation
-- Model performance on different dataset
-
-## 🧠 What I'm Learning
-
-- Collaborative filtering
-- Matrix factorization
-- Memory-based vs model-based approaches
-- Evaluating 
-- Scaling from 100k → 1m → real-world data
-
-## 🔧 Tools Used
-
-- Python
-- Surprise library
-- Pandas
-- Matplotlib (for bar charts & visualizations)
-
 ## CF vs MF: The Difference
 
 | | **Collaborative Filtering (CF)** | **Matrix Factorization (MF)** |
@@ -53,92 +32,89 @@ This repository is my learning journey. I explore different models, architecture
 
 **All MF is CF, but not all CF is MF.** MF is just the most popular way to implement CF today.
 
-## 🌲 Collaborative Filtering: Tree with Libraries & Algorithms
+
+## 🗂️ Recommendation Systems: Approaches & Architectures
 
 ```text
-Collaborative Filtering
+Recommendation Systems
 │
-├── Memory-based (Neighborhood)
-│   │
-│   ├── User-User
-│   │   ├── Surprise: KNNBasic, KNNWithMeans, KNNBaseline
-│   │   ├── scikit-learn: NearestNeighbors
-│   │   └── implicit: NearestNeighbors (item-item only)
-│   │
-│   └── Item-Item
-│       ├── Surprise: KNNBasic (user_based=False)
-│       ├── implicit: NearestNeighbors (cosine, bm25)
-│       └── scikit-learn: cosine_similarity
+├── Non-Personalized
+│   ├── Most Popular
+│   ├── Trending
+│   └── Top Rated
 │
-├── Model-based
-│   │
-│   ├── Matrix Factorization
-│   │   ├── SVD
-│   │   │   ├── Surprise: SVD
-│   │   │   ├── implicit: use for explicit? no (ALS for implicit)
-│   │   │   └── fancyimpute: SVD
-│   │   │
-│   │   ├── ALS (Alternating Least Squares)
-│   │   │   ├── implicit: AlternatingLeastSquares
-│   │   │   ├── Spark MLlib: ALS
-│   │   │   └── lightfm: LightFM (uses WARP, not pure ALS)
-│   │   │
-│   │   ├── NMF (Non-negative MF)
-│   │   │   ├── Surprise: NMF
-│   │   │   ├── scikit-learn: NMF
-│   │   │   └── implicit: NMF
-│   │   │
-│   │   └── SVD++
-│   │       └── Surprise: SVDpp
-│   │
-│   ├── Deep Learning
-│   │   │
-│   │   ├── Neural Collaborative Filtering (NCF)
-│   │   │   ├── TensorFlow Recommenders (TFRS)
-│   │   │   ├── PyTorch: RecBole
-│   │   │   └── cornac: NCF
-│   │   │
-│   │   ├── Two-Tower (Dual Encoder)
-│   │   │   ├── TensorFlow Recommenders (TFRS)
-│   │   │   ├── PyTorch: DLRM (Meta)
-│   │   │   └── RecBole: DSSM
-│   │   │
-│   │   └── Graph Neural Networks (GNNs)
-│   │       ├── PyTorch Geometric
-│   │       ├── DGL (Deep Graph Library)
-│   │       └── RecBole: LightGCN, NGCF
-│   │
-│   ├── Clustering
-│   │   │
-│   │   ├── K-Means
-│   │   │   ├── scikit-learn: KMeans
-│   │   │   └── cornac: KMeans
-│   │   │
-│   │   └── DBSCAN / Spectral
-│   │       └── scikit-learn
-│   │
-│   └── Association Rules
-│       ├── Apriori
-│       │   ├── mlxtend: apriori
-│       │   └── efficient-apriori
-│       │
-│       └── FP-Growth
-│           ├── mlxtend: fpgrowth
-│           └── pyspark: FPGrowth
+├── Content-Based Filtering
+│   ├── TF-IDF Based
+│   ├── Keyword-Based
+│   ├── Metadata-Based
+│   ├── Embedding-Based
+│   └── Deep Content Models
 │
-└── Hybrid Methods
-    │
-    ├── LightFM
-    │   └── lightfm: LightFM (MF + content features)
-    │
-    ├── Factorization Machines (FM)
-    │   ├── fastFM (Python)
-    │   ├── libFM (C++ with Python wrapper)
-    │   ├── pytorch-fm
-    │   └── TensorFlow Recommenders: FM
-    │
-    ├── Wide & Deep
-    │   └── TensorFlow (tf.estimator)
-    │
-    └── Deep & Cross (DCN)
-        └── TensorFlow: DCN, DCN-V2
+├── Collaborative Filtering
+│   │
+│   ├── Memory-Based CF
+│   │   ├── User-Based CF
+│   │   └── Item-Based CF
+│   │
+│   ├── Model-Based CF
+│   │   │
+│   │   ├── Matrix Factorization
+│   │   │   ├── SVD
+│   │   │   ├── SVD++
+│   │   │   ├── ALS
+│   │   │   ├── PMF (Probabilistic MF)
+│   │   │   ├── NMF
+│   │   │   ├── BPR-MF
+│   │   │   └── Logistic MF
+│   │   │
+│   │   ├── Factorization Machines
+│   │   │   ├── FM
+│   │   │   ├── FFM
+│   │   │   └── Field-aware FM
+│   │   │
+│   │   └── Graph-Based Methods
+│   │       ├── Random Walk
+│   │       ├── Personalized PageRank
+│   │       └── Graph Neural Networks
+│   │
+│   └── Neural Collaborative Filtering
+│       ├── NCF
+│       ├── MLP-based CF
+│       ├── AutoRec
+│       ├── Mult-VAE
+│       ├── Wide & Deep
+│       ├── DeepFM
+│       ├── xDeepFM
+│       └── DLRM
+│
+├── Sequential / Session-Based
+│   ├── Markov Chains
+│   ├── FPMC
+│   ├── GRU4Rec
+│   ├── SASRec
+│   ├── BERT4Rec
+│   ├── TiSASRec
+│   └── Transformer-based Recommenders
+│
+├── Knowledge-Based
+│   ├── Constraint-Based
+│   ├── Case-Based
+│   └── Rule-Based
+│
+├── Demographic-Based
+│   ├── Age-Based
+│   ├── Gender-Based
+│   └── Location-Based
+│
+├── Context-Aware
+│   ├── Time-Aware
+│   ├── Location-Aware
+│   ├── Device-Aware
+│   └── Situation-Aware
+│
+└── Hybrid Systems
+    ├── Content + Collaborative
+    ├── Collaborative + Deep Learning
+    ├── Multi-Stage Retrieval + Ranking
+    ├── Two-Tower Models
+    └── Large-Scale Industrial Systems
