@@ -14,6 +14,7 @@ This repository is my learning journey. I explore different models, architecture
 |---------|--------|---------|-------------|
 | MovieLens-100k | ✅ Done | Surprise | SVD, KNN, BaselineOnly, SlopeOne |
 | MovieLens-1m | ✅ Done | Surprise | SVD, KNN, BaselineOnly, SlopeOne |
+| Last.fm | ✅ Done | implicit | ALS, BPR, LMF |
 
 ## CF vs MF: The Difference
 
